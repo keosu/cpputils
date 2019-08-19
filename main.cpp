@@ -15,6 +15,7 @@ int main(int argc, char** argv) {
   }
   cout << "++++++++++++++++++++++++++" << endl;
   stringx x("abc");
+  cout << "size of stringx class: " << sizeof(stringx) << endl;
   cout << "abc == abc : " << (x == "abc") << endl;
   cout << "abc == cde : " << (x == "cde") << endl;
   cout << "abc != ABC : " << (x != "abc") << endl;

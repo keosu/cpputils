@@ -6,14 +6,20 @@ using namespace std;
 
 class stringx {
  public:
+  /////////////////////////////////////////////////
+  // constructors
+  /////////////////////////////////////////////////
   stringx() { _str = ""; }
-
   stringx(string str) { _str = str; }
   stringx(const char* chars) { _str = chars; }
+  stringx(stringx& str) { _str = str._str; }
+  stringx(stringx&& str) { _str = str._str; }
 
-  stringx(const stringx& str) { _str = str._str; }
-
+  /////////////////////////////////////////////////
+  // override operators
+  /////////////////////////////////////////////////
   stringx operator=(const char* chars) { return stringx(chars); }
+  stringx operator=(stringx& str) { return stringx(str._str); }
   stringx operator+=(const char* chars) {
     _str += chars;
     return *this;
@@ -25,15 +31,21 @@ class stringx {
   bool operator==(const char* chars) { return !_str.compare(chars); }
   bool operator!=(const char* chars) { return _str.compare(chars); }
   char operator[](int index) { return _str[index]; }
-  string operator()(int start, int end) {
-    return _str.substr(start, end - start + 1);
+  string operator()(size_t pos = 0, size_t len = string::npos) {
+    return _str.substr(pos, len);
   }
 
+  /////////////////////////////////////////////////
+  // override ouput operator<<
+  /////////////////////////////////////////////////
   friend ostream& operator<<(ostream& out, stringx& obj) {
     out << obj._str;
     return out;
   }
 
+  /////////////////////////////////////////////////
+  // implement some commom functions
+  /////////////////////////////////////////////////
   stringx trim() {
     this->ltrim();
     this->rtrim();
