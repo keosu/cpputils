@@ -9,10 +9,6 @@
 #include <string>
 #include <vector>
 
-#ifndef linux
-#error "this class works only for Linux"
-#endif
-
 using namespace std;
 
 class Path {

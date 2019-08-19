@@ -1,11 +1,13 @@
-all: teststrx
+all: build teststrx
 
-teststrx: main.o #stringx.o
-	g++ main.o  -o teststrx
+teststrx: build/main.o #stringx.o
+	g++ build/main.o  -o build/teststrx
 
-main.o: main.cpp
-	g++ -c -g -std=c++11 main.cpp -o main.o
+build/main.o: test/main.cpp
+	g++ -c -g -std=c++11 test/main.cpp -o build/main.o
 
+build:
+	-mkdir -p build
 clean:
 	rm -rf *.o teststrx
 
