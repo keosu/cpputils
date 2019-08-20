@@ -78,7 +78,7 @@ class stringx {
 
     string tmp = "";
     bool append = false;
-    for (auto i = 0; i < _str.size(); i++) {
+    for (auto i = 0u; i < _str.size(); i++) {
       if (delim.find(_str[i]) == string::npos) {
         if (append && tmp != "") {
           vec.emplace_back(tmp);
