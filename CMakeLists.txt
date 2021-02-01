@@ -24,6 +24,9 @@ add_executable(test_path test/test_path.cc)
 target_link_libraries(test_path gtest pthread)
 
 add_executable(test_strutils test/test_strutils.cc) 
+
+add_subdirectory(tmp)
+add_subdirectory(test)
  
 
 
